@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import OlxCard from './components/OlxCard';
+
+const data = [
+  {
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq2XCEeLV6JqXub2HjgJBYO9Wf38-CyNa-uw&s',
+    title: 'Toyota Corolla 2015',
+    description: 'Used car for sale in Lahore',
+    price: '₨2,500,000',
+    location: 'Lahore',
+    date: 'Posted 2 days ago',
+  },
+  {
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRveUwahXhzc7S_aXpVpfdv4WISnotK9LB6lA&s',
+    title: 'Samsung Galaxy S22',
+    description: 'Used mobile phone for sale in Karachi',
+    price: '₨80,000',
+    location: 'Karachi',
+    date: 'Posted 1 day ago',
+  },
+  // Add more objects to the array as needed
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      {data.map((item, index) => (
+        <OlxCard key={index} {...item} />
+      ))}
+    </div>
+  );
 }
 
-export default App
+export default App;
